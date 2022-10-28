@@ -1,0 +1,12 @@
+app_index:
+    path: /
+    defaults: { _controller: AppBundle:Default:index }
+
+app_autos:
+    path: /autos
+    defaults: { _controller: AppBundle:Auto:auto }
+
+app_usuarios:
+    path: /usuarios
+    defaults: { _controller: AppBundle:Usuario:usuarios }
+

@@ -1,0 +1,71 @@
+<?php
+
+namespace Acevedo9BBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Automovil
+ *
+ * @ORM\Table(name="automovil", indexes={@ORM\Index(name="usuario", columns={"usuario"})})
+ * @ORM\Entity
+ */
+class Automovil
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idautomovil", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idautomovil;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="marca", type="string", length=45, nullable=false)
+     */
+    private $marca;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="modelo", type="string", length=45, nullable=false)
+     */
+    private $modelo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="anio", type="string", length=45, nullable=false)
+     */
+    private $anio;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="color", type="string", length=45, nullable=false)
+     */
+    private $color;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="estado", type="integer", nullable=false)
+     */
+    private $estado;
+
+    /**
+     * @var \Usuario
+     *
+     * @ORM\ManyToOne(targetEntity="Usuario")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="usuario", referencedColumnName="idusuario")
+     * })
+     */
+    private $usuario;
+
+
+}
+

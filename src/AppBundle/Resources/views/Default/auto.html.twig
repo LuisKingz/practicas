@@ -1,0 +1,45 @@
+
+
+
+
+
+{% include 'AppBundle:Layout:template.html.twig' %}
+<h1>Lista de Autos</h1>
+<table>
+    <tr>
+        <th>Marca</th>
+        <th>Modelo</th>
+        <th>Año</th>
+        <th>Color</th>
+        <th>Estado</th>
+        <th>Usario</th>
+    </tr>
+   
+
+    {% for auto in autoList %}
+        <tr>
+            <td>{{auto.modelo}}</td>
+            <td>{{auto.marca}}</td>
+            <td>{{auto.anio}}</td>
+            <td>{{auto.color}}</td>
+            
+            <td>{{auto.estado | replace({'1':'Activo','2':'Inactivo'})}}</td>
+             <td>{{auto.usuario.nombre}}</td>
+
+        </tr>
+    {% endfor %}
+</table>
+<h1>Formulario de autos</h1>
+{{ form_start(autoForm) }}
+{{ form_errors(autoForm) }}
+{{ form_end(autoForm) }}
+
+{% block js %}
+    <script type="text/javascript">
+        {% for flashMessage in app.session.flashbag.get('success') %}
+            alert("{{ flashMessage }}");
+        {% endfor %}
+    </script>
+{% endblock %}
+
+

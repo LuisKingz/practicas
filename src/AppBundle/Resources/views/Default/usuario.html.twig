@@ -1,0 +1,37 @@
+{% include 'AppBundle:Layout:template.html.twig' %}
+<h1>Lista de usuarios</h1>
+<table>
+    <tr>
+        <th>Nombre Completo</th>
+        <th>Correo</th>
+
+        <th>Estado</th>
+   
+    </tr>
+   
+
+    {% for usu in usuarioList %}
+        <tr>
+            <td>{{usu.nombre}} {{usu.apellido}}</td>
+            <td>{{usu.correo}}</td>
+       
+        
+            <td>{{usu.estado | replace({'1':'Activo','2':'Inactivo'})}}</td>
+ 
+        </tr>
+    {% endfor %}
+</table>
+<h1>Formulario de usuarios</h1>
+{{ form_start(usuarioForm) }}
+{{ form_errors(usuarioForm) }}
+{{ form_end(usuarioForm) }}
+
+{% block js %}
+    <script type="text/javascript">
+        {% for flashMessage in app.session.flashbag.get('success') %}
+            alert("{{ flashMessage }}");
+        {% endfor %}
+    </script>
+{% endblock %}
+
+

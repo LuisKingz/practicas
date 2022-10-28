@@ -1,0 +1,9 @@
+
+app:
+    resource: '@AppBundle/Resources/config/routing.yml'
+    prefix: /
+    
+acevedo9_b:
+    resource: "@Acevedo9BBundle/Resources/config/routing.yml"
+    prefix:   /
+

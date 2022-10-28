@@ -1,0 +1,3 @@
+acevedo9_b_homepage:
+    path:     /
+    defaults: { _controller: Acevedo9BBundle:Default:index }
